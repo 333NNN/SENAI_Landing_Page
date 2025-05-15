@@ -6,8 +6,9 @@
   ) !important;
 }
 .navLinkCustom {
-  font-weight: bold;
-  color: white;
+  font-size: larger !important;
+  font-weight: 700 !important;
+  color: white !important;
   text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
