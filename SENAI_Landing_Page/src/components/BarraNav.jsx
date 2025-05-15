@@ -2,8 +2,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { BsShop } from "react-icons/bs";
-
+import Image from "react-bootstrap/Image";
+import LogoSenai from "../assets/SENAI-BRANCA.svg";
 import styles from "./BarraNav.module.css";
 import { useContext } from "react";
 // Importa o contexto de usuário
@@ -15,21 +15,27 @@ const BarraNav = () => {
 
   return (
     <div style={{ position: "sticky", top: "0", width: "100%", zIndex: 1 }}>
-      <Navbar expand="lg" bg="success" data-bs-theme="dark">
+      <Navbar
+        expand="lg"
+        data-bs-theme="dark"
+        className={styles["navbar-gradiente"]}
+      >
         <Container>
           {/* Texto logo */}
-          <Navbar.Brand href="/home">
-            {/* Icone logo usando react icons */}
-            <BsShop size="1.5em" className="me-2" color="white" />
-            C&G Mercados
+          <Navbar.Brand href="/">
+            <Image src={LogoSenai}></Image>
           </Navbar.Brand>
           {/* Botão de menu responsivo */}
           <Navbar.Toggle aria-controls="minha-nav" />
           <Navbar.Collapse id="minha-nav">
             {/* Paginas */}
             <Nav className="me-auto">
-              <Nav.Link href="/home">Produtos</Nav.Link>
-              <Nav.Link href="/cadastraproduto">Cadastro</Nav.Link>
+              <Nav.Link className={styles.navLinkCustom} href="/home">
+                Início
+              </Nav.Link>
+              <Nav.Link className={styles.navLinkCustom} href="/sobre">
+                Quem Somos
+              </Nav.Link>
             </Nav>
             {/* Sair */}
             <Nav className="justify-content-end">

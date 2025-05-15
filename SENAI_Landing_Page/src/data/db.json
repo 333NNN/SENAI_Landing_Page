@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "id": "",
+      "nome": "",
+      "email": "",
+      "cpf": "",
+      "senha": ""
+    }
+  ],
+  "cursos": [
+    {
+      "nome": "",
+      "preco": "",
+      "imagemUrl": ""
+    }
+  ]
+}

@@ -22,7 +22,6 @@ const Login = () => {
         >
           <Card.Header style={{ border: "none" }}>
             <Row className="fs-1 fw-bold mb-1">
-              <Col style={{ textShadow: "1px 2px 3px black" }}>Bem-vindo</Col>
               <Col>
                 <Link to="/home">
                   <img src={LogoSenai} alt="" width="70%" />
@@ -34,10 +33,10 @@ const Login = () => {
             </Row>
           </Card.Header>
           <Row>
-            <Col md={6}>
+            <Col md={10} className="m-auto">
               <Card.Body
                 style={{ backgroundColor: "white" }}
-                className="rounded-1"
+                className="rounded-2"
               >
                 <Form>
                   <FloatingLabel
@@ -54,7 +53,7 @@ const Login = () => {
                   </InputGroup>
                   <Row className="mb-3 text-end">
                     <Link
-                      className="fw-bold text-decoration-none fs-5"
+                      className="fw-bold text-decoration-none fs-6"
                       style={{ color: "#1F29AC" }}
                     >
                       Esqueceu a senha?
@@ -66,30 +65,17 @@ const Login = () => {
                     type="submit"
                     size="lg"
                     className="w-100 p-3 text-uppercase fw-bold"
-                    style={{ backgroundColor: "#101F62", borderColor: "white" }}
+                    style={{ backgroundColor: "#fb5a09", borderColor: "white" }}
                   />
                 </Form>
               </Card.Body>
             </Col>
-            <Col>
-              <Row className="text-start mx-1 mt-2 mb-1">
-                <Col>Não tem Cadastro?</Col>
-              </Row>
-              <Row className="mb-3 mx-2">
-                <Button
-                  as="input"
-                  value="Cadastre-se"
-                  type="submit"
-                  size="lg"
-                  className="w-100 p-3 text-uppercase fw-bold"
-                  style={{
-                    background:
-                      "linear-gradient(to right, #FC5707 50%, #F2AB13)",
-                    border: "none",
-                  }}
-                />
-              </Row>
-            </Col>
+            <Row className="text-center mx-1 mt-2 mb-1 m-auto">
+              <Col>
+                Não tem Cadastro?
+                <Link className="ms-1 text-decoration-none text-white fw-bold">Cadastre-se</Link>
+              </Col>
+            </Row>
           </Row>
         </Card>
       </Col>
