@@ -17,19 +17,16 @@ const Login = () => {
     <Container>
       <Col md={10} lg={9} xl={8} className="m-auto">
         <Card
-          style={{ backgroundColor: "#1F29AC", color: "white" }}
-          className="p-2 pb-3 mx-auto mt-5 text-center shadow rounded-4"
+          style={{ backgroundColor: "#2029ad", color: "white" }}
+          className="p-2 pb-3 mx-auto mt-4 text-center shadow rounded-4"
         >
           <Card.Header style={{ border: "none" }}>
             <Row className="fs-1 fw-bold mb-1">
               <Col>
                 <Link to="/home">
-                  <img src={LogoSenai} alt="" width="70%" />
+                  <img src={LogoSenai} alt="" width="60%" />
                 </Link>
               </Col>
-            </Row>
-            <Row>
-              <Col md={6}>Acesse sua conta</Col>
             </Row>
           </Card.Header>
           <Row>
@@ -38,6 +35,11 @@ const Login = () => {
                 style={{ backgroundColor: "white" }}
                 className="rounded-2"
               >
+                <Row className="justify-content-center">
+                  <Col md={3} className="text-start text-dark mb-2 ">
+                    Acesse sua conta
+                  </Col>
+                </Row>
                 <Form>
                   <FloatingLabel
                     className="mb-3"
@@ -73,7 +75,9 @@ const Login = () => {
             <Row className="text-center mx-1 mt-2 mb-1 m-auto">
               <Col>
                 Não tem Cadastro?
-                <Link className="ms-1 text-decoration-none text-white fw-bold">Cadastre-se</Link>
+                <Link to="/cadastro" className="ms-1 text-decoration-none text-white fw-bold">
+                  Cadastre-se
+                </Link>
               </Col>
             </Row>
           </Row>

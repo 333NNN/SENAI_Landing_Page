@@ -6,6 +6,7 @@ import Login from "./pages/Login.jsx";
 import Sobre from "./pages/Sobre.jsx";
 import DevSis from "./pages/DevSis.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import Cadastro from "./pages/Cadastro.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/cursos/tecnico-dev-sistemas",
         element: <DevSis />,
+      },
+      {
+        path: "/cadastro",
+        element: <Cadastro />,
       },
     ],
   },
