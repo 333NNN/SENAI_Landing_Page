@@ -44,7 +44,7 @@ const Login = () => {
                   <FloatingLabel
                     className="mb-3"
                     id="userEmailInput"
-                    label="Email ou CPF"
+                    label="Email"
                   >
                     <Form.Control type="email" placeholder="" />
                   </FloatingLabel>

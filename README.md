@@ -1,12 +1,5 @@
-# React + Vite
+# SA 01 – LANDING PAGE SENAI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Na era digital, a presença online de uma instituição de ensino é essencial para fortalecer sua marca e atrair novos alunos. O desenvolvimento de uma landing page para a escola SENAI vai além de um simples projeto de design; é uma oportunidade de aplicar conceitos de responsividade, usabilidade e identidade visual alinhados às necessidades de um público cada vez mais conectado e exigente.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Nesta atividade, os alunos serão desafiados a criar uma landing page para o SENAI, refletindo a excelência e a tradição da instituição no ensino profissionalizante. O projeto deve abranger quatro páginas distintas, cada uma com funcionalidades específicas que simulam a experiência real de um usuário navegando pelo site da escola.

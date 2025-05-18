@@ -1,37 +1,47 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { BsFillPinMapFill } from "react-icons/bs";
+import { BsFillPencilFill } from "react-icons/bs";
+import { BsCalendar2Check } from "react-icons/bs";
 
 const CardCurso = (props) => {
   return (
     <div>
-      <Card style={{ width: "15rem", height: "30rem" }}>
-        {/* Imagem do Card */}
+      <Card style={{ display: "flex", width: "15rem", height: "27rem" }}>
         <Card.Img
           variant="top"
-          // se a imagem for diferene de null, mostra a imagem do produto, se nao mostra uma imagem padrão
           src={
-            props.imagemUrl != "null"
+            props.imagemUrl && props.imagemUrl.trim() !== ""
               ? props.imagemUrl
               : "https://www.malhariapradense.com.br/wp-content/uploads/2017/08/produto-sem-imagem.png"
           }
           height="200px"
         />
-
         <Card.Body>
-          {/* Título do card com nome do produto */}
           <Card.Title>{props.nome}</Card.Title>
-          {/* Subtitulo no card com preco do produto */}
+
+          <Card.Text>
+            <BsFillPinMapFill className="mb-1" />
+            <b> Cidade: </b>
+            {props.cidade}
+          </Card.Text>
+          <Card.Text>
+            <BsFillPencilFill className="mb-1" />
+            <b> Carga Horária: </b>
+            {props.cargaHoraria}
+          </Card.Text>
+          <Card.Text>
+            <BsCalendar2Check className="mb-1" />
+            <b> Início: </b>
+            {props.inicio}
+          </Card.Text>
+
           <Card.Subtitle className="mb-2 text-muted">
-            Preço: {props.preco}
+            À vista: R${props.preco}
           </Card.Subtitle>
-          <Card.Text>
-            <b> Descrição: </b> <br></br> {props.descricao}
-          </Card.Text>
-          <Card.Text>
-            <b> Categoria: </b> <br></br> {props.categoria}
-          </Card.Text>
-          <Button variant="primary">Matricule-se</Button>
+
+          <Button variant="primary">Matricular</Button>
         </Card.Body>
       </Card>
     </div>

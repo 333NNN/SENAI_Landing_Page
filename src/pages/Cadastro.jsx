@@ -42,23 +42,22 @@ const Cadastro = () => {
 
   return (
     <Container
-      className="p-3 mx-auto mt-4 text-center shadow rounded-4 custom-container"
+      className="p-3 mx-auto m-4 text-center shadow rounded-4 custom-container"
       style={{
         width: "570px",
-        height: "700px",
+        height: "600px",
         background: "linear-gradient(to bottom, #511b9e, #45bed6 )",
         overflow: "hidden",
       }}
     >
       <Row>
-        <Row className="mb-3">
+        <Row className="mt-3 mb-4">
           <Col>
             <img src={LogoSenai} alt="" width="60%" />
           </Col>
         </Row>
-        <Row>
-        </Row>
       </Row>
+
       <Form className="px-4" onSubmit={handleSubmit(onSubmit, onError)}>
         <Row>
           <Col>

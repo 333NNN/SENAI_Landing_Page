@@ -10,9 +10,40 @@
   ],
   "cursos": [
     {
-      "nome": "",
-      "preco": "",
-      "imagemUrl": ""
+      "id": "1",
+      "nome": "TÉCNICO EM LOGÍSTICA",
+      "preco": "1200,00",
+      "cidade": "Vitória",
+      "cargaHoraria": "1200h",
+      "inicio": "01/08/2025",
+      "imagemUrl": "https://admin.loja.senaies.com.br/pub/media/catalog/product//l/o/logistica__1_29.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "TÉCNICO EM LOGÍSTICA",
+      "preco": "1200,00",
+      "cidade": "Vitória",
+      "cargaHoraria": "1200h",
+      "inicio": "01/08/2025",
+      "imagemUrl": "https://admin.loja.senaies.com.br/pub/media/catalog/product//l/o/logistica__1_29.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "TÉCNICO EM LOGÍSTICA",
+      "preco": "1200,00",
+      "cidade": "Vitória",
+      "cargaHoraria": "1200h",
+      "inicio": "01/08/2025",
+      "imagemUrl": "https://admin.loja.senaies.com.br/pub/media/catalog/product//l/o/logistica__1_29.jpg"
+    },
+    {
+      "id": "4",
+      "nome": "TÉCNICO EM LOGÍSTICA",
+      "preco": "1200,00",
+      "cidade": "Vitória",
+      "cargaHoraria": "1200h",
+      "inicio": "01/08/2025",
+      "imagemUrl": "https://admin.loja.senaies.com.br/pub/media/catalog/product//l/o/logistica__1_29.jpg"
     }
   ]
 }
