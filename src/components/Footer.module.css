@@ -1,0 +1,13 @@
+.footer-gradiente {
+  display: flex;
+  background: linear-gradient(
+    to right,
+    rgb(32, 41, 173),
+    rgb(69, 191, 214)
+  ) !important;
+  padding: 1rem;
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: white;
+}

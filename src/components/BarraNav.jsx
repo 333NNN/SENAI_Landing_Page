@@ -12,14 +12,22 @@ const BarraNav = () => {
   const { usuarioNome, logout } = useContext(AuthContext);
 
   return (
-    <div style={{ position: "sticky", top: "0", width: "100%", zIndex: 1 }}>
+    <div
+      style={{
+        position: "sticky",
+        top: "0",
+        width: "100%",
+        zIndex: 1,
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+      }}
+    >
       <Navbar
         expand="lg"
         data-bs-theme="dark"
         className={styles["navbar-gradiente"]}
       >
         <Container>
-            <Navbar.Brand href="/">
+          <Navbar.Brand href="/">
             <Image src={LogoSenai}></Image>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="minha-nav" />

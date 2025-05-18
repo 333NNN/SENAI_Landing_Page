@@ -4,6 +4,7 @@ import React from "react";
 import BarraNav from "./components/BarraNav";
 import { Outlet } from "react-router-dom";
 import { AuthProvider } from "./contexts/UserContext";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Container>
             <Outlet />
           </Container>
+          <Footer />
         </div>
       </AuthProvider>
     </React.StrictMode>

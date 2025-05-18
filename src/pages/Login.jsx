@@ -18,7 +18,7 @@ const Login = () => {
       <Col md={10} lg={9} xl={8} className="m-auto">
         <Card
           style={{ backgroundColor: "#2029ad", color: "white" }}
-          className="p-2 pb-3 mx-auto mt-4 text-center shadow rounded-4"
+          className="p-2 pb-3 mx-auto m-4 text-center shadow rounded-4"
         >
           <Card.Header style={{ border: "none" }}>
             <Row className="fs-1 fw-bold mb-1">
@@ -31,13 +31,10 @@ const Login = () => {
           </Card.Header>
           <Row>
             <Col md={10} className="m-auto">
-              <Card.Body
-                style={{ backgroundColor: "white" }}
-                className="rounded-2"
-              >
+              <Card.Body className="rounded-2">
                 <Row className="justify-content-center">
-                  <Col md={3} className="text-start text-dark mb-2 ">
-                    Acesse sua conta
+                  <Col className="text-center text-dark mb-2 text-white">
+                    <h3>Acesse sua conta</h3>
                   </Col>
                 </Row>
                 <Form>
@@ -55,6 +52,7 @@ const Login = () => {
                   </InputGroup>
                   <Row className="mb-3 text-end">
                     <Link
+                      to="/recuperar-senha"
                       className="fw-bold text-decoration-none fs-6"
                       style={{ color: "#1F29AC" }}
                     >
@@ -75,7 +73,10 @@ const Login = () => {
             <Row className="text-center mx-1 mt-2 mb-1 m-auto">
               <Col>
                 Não tem Cadastro?
-                <Link to="/cadastro" className="ms-1 text-decoration-none text-white fw-bold">
+                <Link
+                  to="/cadastro"
+                  className="ms-1 text-decoration-none text-white fw-bold"
+                >
                   Cadastre-se
                 </Link>
               </Col>

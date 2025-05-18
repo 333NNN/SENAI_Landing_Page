@@ -14,6 +14,6 @@
 }
 
 .navLinkCustom:hover {
-  color: #ffd700; /* Exemplo: dourado */
+  color: #ffd700;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }

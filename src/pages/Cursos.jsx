@@ -12,7 +12,7 @@ const Cursos = () => {
   return (
     <div>
       <Row>
-        <Col>
+        <Col className="d-flex justify-content-center align-items-center flex-column">
           <h1>Cursos</h1>
 
           <div className="d-flex col-12 gap-2 mt-3 justify-content-between flex-wrap">

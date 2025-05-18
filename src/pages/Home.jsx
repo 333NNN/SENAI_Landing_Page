@@ -1,14 +1,16 @@
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Row";
 import Cursos from "./Cursos";
 import Sobre from "./Sobre";
+import Modalidades from "../components/Modalidades";
 
 const Home = () => {
   return (
     <div>
-      <Sobre />
+      <Modalidades />
       <Cursos />
+      <Sobre />
     </div>
   );
 };

@@ -45,7 +45,7 @@ const Cadastro = () => {
       className="p-3 mx-auto m-4 text-center shadow rounded-4 custom-container"
       style={{
         width: "570px",
-        height: "600px",
+        height: "580px",
         background: "linear-gradient(to bottom, #511b9e, #45bed6 )",
         overflow: "hidden",
       }}
@@ -121,7 +121,7 @@ const Cadastro = () => {
 
         <Row>
           <Col>
-            <FloatingLabel id="userSenhaInput" className="mb-3" label="Senha">
+            <FloatingLabel id="userSenhaInput" className="mb-0" label="Senha">
               <Form.Control
                 type="password"
                 placeholder="Senha"
@@ -142,7 +142,7 @@ const Cadastro = () => {
           <Col>
             <FloatingLabel
               id="userConfirmaSenhaInput"
-              className="mb-3"
+              className="mb-2"
               label="Confirmar Senha"
             >
               <Form.Control
@@ -159,7 +159,7 @@ const Cadastro = () => {
           </Col>
         </Row>
 
-        <Row className="my-3">
+        <Row className="my-2">
           <Col sm={6}>
             <Form.Check
               className="form-check-label text-white"
@@ -174,10 +174,10 @@ const Cadastro = () => {
           <Col>
             <Button
               as="input"
-              value="Avançar"
+              value="Cadastrar"
               type="submit"
               size="lg"
-              className=""
+              className="w-100"
             />
           </Col>
         </Row>
