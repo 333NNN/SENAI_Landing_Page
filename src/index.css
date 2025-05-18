@@ -1,8 +1,17 @@
-/* .App {
-  background-color: rgb(231, 231, 231);
+html,
+body,
+.App {
   height: 100%;
+  margin: 0;
 }
 
+.App {
+  background-image: url("/BG-teste.png");
+  background-size: cover; /* para cobrir toda a área */
+  background-position: center;
+}
+
+/*
 .error{
   color: red;
   font-size: 20px;

@@ -23,6 +23,7 @@ const Cursos = () => {
                   id={curso.id}
                   nome={curso.nome}
                   cidade={curso.cidade}
+                  modalidade={curso.modalidade}
                   cargaHoraria={curso.cargaHoraria}
                   inicio={curso.inicio}
                   preco={curso.preco}

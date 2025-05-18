@@ -31,6 +31,9 @@ const BarraNav = () => {
               <Nav.Link className={styles.navLinkCustom} href="/sobre">
                 Quem Somos
               </Nav.Link>
+              <Nav.Link className={styles.navLinkCustom} href="/cursos">
+                Cursos
+              </Nav.Link>
             </Nav>
             <Nav className="justify-content-end">
               {usuarioNome !== "Visitante" && (
