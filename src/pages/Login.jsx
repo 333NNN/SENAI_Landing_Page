@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -7,12 +7,50 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
-
 import LogoSenai from "../assets/SENAI-BRANCA.svg";
-
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/UserContext";
+import { useVerificaLogin } from "../hooks/useApi";
 
 const Login = () => {
+  const { logout } = useContext(AuthContext);
+
+  useEffect(() => {
+    logout();
+  }, []);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const { verificaLogin } = useVerificaLogin();
+
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    console.log("Dados:", data);
+
+    const respostaVerificacao = verificaLogin(data);
+
+    if (respostaVerificacao == "Login efetuado com sucesso") {
+      alert(respostaVerificacao);
+      navigate("/home");
+    } else {
+      setAlertClass("mb-5 mt-2");
+      setAlertMensagem(respostaVerificacao);
+    }
+  };
+
+  const onError = (errors) => {
+    console.log("Erros:", errors);
+  };
+
+  const [alertClass, setAlertClass] = useState("mb-5 d-none");
+  const [alertMensagem, setAlertMensagem] = useState("");
   return (
     <Container>
       <Col md={10} lg={9} xl={8} className="m-auto">
@@ -37,19 +75,38 @@ const Login = () => {
                     <h3>Acesse sua conta</h3>
                   </Col>
                 </Row>
-                <Form>
+
+                <Form onSubmit={handleSubmit(onSubmit, onError)}>
                   <FloatingLabel
-                    className="mb-3"
-                    id="userEmailInput"
+                    controlId="floatingInput"
                     label="Email"
+                    className="mb-3"
                   >
-                    <Form.Control type="email" placeholder="" />
+                    <Form.Control
+                      type="email"
+                      placeholder="Email"
+                      {...register("email", {
+                        required: "O email é obrigatório",
+                        pattern: {
+                          value:
+                            /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+                          message: "Email inválido",
+                        },
+                        validate: (value) =>
+                          value.includes("@") || "Email inválido",
+                      })}
+                    ></Form.Control>
+                    {errors.email && (
+                      <p className="error">{errors.email.message}</p>
+                    )}
                   </FloatingLabel>
+
                   <InputGroup className="mb-3">
                     <FloatingLabel id="userPassInput" label="Senha">
                       <Form.Control type="password" placeholder="" />
                     </FloatingLabel>
                   </InputGroup>
+
                   <Row className="mb-3 text-end">
                     <Link
                       to="/recuperar-senha"

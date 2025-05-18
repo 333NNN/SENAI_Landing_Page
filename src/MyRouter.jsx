@@ -4,11 +4,11 @@ import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Sobre from "./pages/Sobre.jsx";
-import DevSis from "./pages/CursosDetalhes.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Cadastro from "./pages/Cadastro.jsx";
 import Cursos from "./pages/Cursos.jsx";
 import CursosDetalhes from "./pages/CursosDetalhes.jsx";
+import EsqueciSenha from "./pages/EsqueciSenha.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/cursos",
-        element: <Cursos />
+        element: <Cursos />,
       },
       {
         path: "/cadastro",
@@ -44,7 +44,10 @@ const router = createBrowserRouter([
         path: "/cursos/:id",
         element: <CursosDetalhes />,
       },
-      
+      {
+        path: "/esqueci-minha-senha",
+        element: <EsqueciSenha />,
+      },
     ],
   },
 ]);

@@ -5,15 +5,12 @@ import {
   Row,
   Col,
   Container,
-  Image,
+  Card,
 } from "react-bootstrap";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import LogoSenai from "../assets/SENAI-BRANCA.svg";
-
-//   import styles from "./cadastro.module.css";
-
 import { verificaCPF } from "../functions/verificaCPF";
 
 const Cadastro = () => {
@@ -28,11 +25,13 @@ const Cadastro = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+
     if (!verificaCPF(data.cpf)) {
-      return false;
+      alert("CPF inválido! Por favor, corrija antes de continuar.");
+      return;
     }
 
-    navigate("/pergunta-seguranca", { state: data });
+    navigate("/login", { state: data });
   };
 
   const senha = watch("senha");
@@ -41,160 +40,197 @@ const Cadastro = () => {
   };
 
   return (
-    <Container
-      className="p-3 mx-auto m-4 text-center shadow rounded-4 custom-container"
-      style={{
-        width: "570px",
-        height: "580px",
-        background: "linear-gradient(to bottom, #511b9e, #45bed6 )",
-        overflow: "hidden",
-      }}
-    >
-      <Row>
-        <Row className="mt-3 mb-4">
-          <Col>
-            <img src={LogoSenai} alt="" width="60%" />
-          </Col>
-        </Row>
-      </Row>
+    <Container>
+      <Col md={10} lg={9} xl={8} className="m-auto">
+        <Card
+          style={{ backgroundColor: "#2029ad", color: "white" }}
+          className="p-2 pb-3 mx-auto m-4 text-center shadow rounded-4"
+        >
+          <Card.Header style={{ border: "none" }}>
+            <Row className="fs-1 fw-bold mb-1">
+              <Col>
+                <Link to="/home">
+                  <img src={LogoSenai} alt="" width="60%" />
+                </Link>
+              </Col>
+            </Row>
+          </Card.Header>
+          <Col md={10} className="m-auto">
+            <Card.Body className="rounded-2">
+              <Row className="justify-content-center">
+                <Col className="text-center text-dark mb-2 text-white">
+                  <h3>Cadastre-se</h3>
+                </Col>
+              </Row>
+              <Form className="px-4" onSubmit={handleSubmit(onSubmit, onError)}>
+                <Row>
+                  <Col>
+                    <FloatingLabel
+                      id="userEmailInput"
+                      className="mb-3"
+                      label="Email"
+                    >
+                      <Form.Control
+                        type="email"
+                        placeholder=""
+                        {...register("email")}
+                      />
+                    </FloatingLabel>
+                  </Col>
+                </Row>
 
-      <Form className="px-4" onSubmit={handleSubmit(onSubmit, onError)}>
-        <Row>
-          <Col>
-            <FloatingLabel id="userEmailInput" className="mb-3" label="Email">
-              <Form.Control
-                type="email"
-                placeholder=""
-                {...register("email")}
-              />
-            </FloatingLabel>
-          </Col>
-        </Row>
+                <Row className="">
+                  <Col>
+                    <FloatingLabel
+                      id="userCpfInput"
+                      className="mb-3"
+                      label="CPF"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="000.000.000-00"
+                        {...register("cpf")}
+                      />
+                    </FloatingLabel>
+                  </Col>
 
-        <Row className="">
-          <Col>
-            <FloatingLabel id="userCpfInput" className="mb-3" label="CPF">
-              <Form.Control
-                type="text"
-                placeholder="000.000.000-00"
-                {...register("cpf")}
-              />
-            </FloatingLabel>
-          </Col>
+                  <Col>
+                    <FloatingLabel
+                      id="userTelInput"
+                      className="mb-3"
+                      label="Telefone"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="(00) 00000-0000"
+                        {...register("telefone")}
+                      />
+                    </FloatingLabel>
+                  </Col>
+                </Row>
 
-          <Col>
-            <FloatingLabel id="userTelInput" className="mb-3" label="Telefone">
-              <Form.Control
-                type="text"
-                placeholder="(00) 00000-0000"
-                {...register("telefone")}
-              />
-            </FloatingLabel>
-          </Col>
-        </Row>
+                <Row className="">
+                  <Col className="">
+                    <FloatingLabel
+                      id="userNomeInput"
+                      className="mb-3"
+                      label="Nome"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Nome"
+                        {...register("nome")}
+                      />
+                    </FloatingLabel>
+                  </Col>
 
-        <Row className="">
-          <Col className="">
-            <FloatingLabel id="userNomeInput" className="mb-3" label="Nome">
-              <Form.Control
-                type="text"
-                placeholder="Nome"
-                {...register("nome")}
-              />
-            </FloatingLabel>
-          </Col>
+                  <Col className="">
+                    <FloatingLabel
+                      id="userSobrenomeInput"
+                      className="mb-3"
+                      label="Sobrenome"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Sobrenome"
+                        {...register("sobrenome")}
+                      />
+                    </FloatingLabel>
+                  </Col>
+                </Row>
 
-          <Col className="">
-            <FloatingLabel
-              id="userSobrenomeInput"
-              className="mb-3"
-              label="Sobrenome"
-            >
-              <Form.Control
-                type="text"
-                placeholder="Sobrenome"
-                {...register("sobrenome")}
-              />
-            </FloatingLabel>
-          </Col>
-        </Row>
+                <Row>
+                  <Col>
+                    <FloatingLabel
+                      id="userSenhaInput"
+                      className="mb-0"
+                      label="Senha"
+                    >
+                      <Form.Control
+                        type="password"
+                        placeholder="Senha"
+                        isInvalid={!!errors.senha}
+                        {...register("senha", {
+                          required: "A senha é obrigatória",
+                          minLength: {
+                            value: 8,
+                            message: "A senha deve ter pelo menos 8 caracteres",
+                          },
+                        })}
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.senha?.message}
+                      </Form.Control.Feedback>
+                    </FloatingLabel>
+                  </Col>
+                  <Col>
+                    <FloatingLabel
+                      id="userConfirmaSenhaInput"
+                      className="mb-2"
+                      label="Confirmar Senha"
+                    >
+                      <Form.Control
+                        type="password"
+                        placeholder="Confirmar Senha"
+                        isInvalid={!!errors.confirmarSenha}
+                        {...register("confirmarSenha", {
+                          required: "A confirmação de senha é obrigatória",
+                          validate: (value) =>
+                            value === senha || "As senhas não coincidem",
+                        })}
+                      />
+                    </FloatingLabel>
+                  </Col>
+                </Row>
 
-        <Row>
-          <Col>
-            <FloatingLabel id="userSenhaInput" className="mb-0" label="Senha">
-              <Form.Control
-                type="password"
-                placeholder="Senha"
-                isInvalid={!!errors.senha}
-                {...register("senha", {
-                  required: "A senha é obrigatória",
-                  minLength: {
-                    value: 8,
-                    message: "A senha deve ter pelo menos 8 caracteres",
-                  },
-                })}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.senha?.message}
-              </Form.Control.Feedback>
-            </FloatingLabel>
-          </Col>
-          <Col>
-            <FloatingLabel
-              id="userConfirmaSenhaInput"
-              className="mb-2"
-              label="Confirmar Senha"
-            >
-              <Form.Control
-                type="password"
-                placeholder="Confirmar Senha"
-                isInvalid={!!errors.confirmarSenha}
-                {...register("confirmarSenha", {
-                  required: "A confirmação de senha é obrigatória",
-                  validate: (value) =>
-                    value === senha || "As senhas não coincidem",
-                })}
-              />
-            </FloatingLabel>
-          </Col>
-        </Row>
+                <Row className="my-3">
+                  <Col sm={6}>
+                    <Form.Check
+                      className="form-check-label text-white"
+                      type="checkbox"
+                      id="termsCheck"
+                      label="Li e aceito os termos de uso"
+                    />
+                  </Col>
+                </Row>
 
-        <Row className="my-2">
-          <Col sm={6}>
-            <Form.Check
-              className="form-check-label text-white"
-              type="checkbox"
-              id="termsCheck"
-              label="Li e aceito os termos de uso"
-            />
-          </Col>
-        </Row>
+                <Row>
+                  <Col>
+                    <Button
+                      as="input"
+                      value="Cadastrar"
+                      type="submit"
+                      size="lg"
+                      className="w-100 p-3 text-uppercase fw-bold"
+                      style={{
+                        backgroundColor: "#fb5a09",
+                        borderColor: "white",
+                      }}
+                    />
+                  </Col>
+                </Row>
 
-        <Row>
-          <Col>
-            <Button
-              as="input"
-              value="Cadastrar"
-              type="submit"
-              size="lg"
-              className="w-100"
-            />
-          </Col>
-        </Row>
+                <hr className="mt-4 mx-5 text-white border-2" />
 
-        <hr className="mt-4 mx-5 text-white border-2" />
-
-        <Row className="mt-4">
-          <Col>
-            <h6 className="text-white">
-              Já possui conta?{" "}
-              <Link to="/login" className="text-decoration-none">
-                Login
-              </Link>
-            </h6>
+                <Row>
+                  <Col>
+                    <h6>
+                      Já possui conta?{" "}
+                      <Link
+                        to="/login"
+                        className="text-decoration-none text-white"
+                        style={{ color: "#f3ab15" }}
+                      >
+                        Faça Login
+                      </Link>
+                    </h6>
+                  </Col>
+                </Row>
+              </Form>
+            </Card.Body>
           </Col>
-        </Row>
-      </Form>
+        </Card>
+      </Col>
     </Container>
   );
 };
