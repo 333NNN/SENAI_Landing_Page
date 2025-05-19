@@ -7,6 +7,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import { Alert } from "react-bootstrap";
 import LogoSenai from "../assets/SENAI-BRANCA.svg";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -101,29 +102,55 @@ const Login = () => {
                     )}
                   </FloatingLabel>
 
-                  <InputGroup className="mb-3">
-                    <FloatingLabel id="userPassInput" label="Senha">
-                      <Form.Control type="password" placeholder="" />
+                  <InputGroup className="mb-1">
+                    <FloatingLabel
+                      controlId="floatingInputPassword"
+                      label="Senha"
+                      className="mb-2"
+                    >
+                      <Form.Control
+                        type="password"
+                        placeholder="Senha"
+                        {...register("senha", {
+                          required: "A senha é obrigatória",
+                        })}
+                      ></Form.Control>
+                      {errors.senha && (
+                        <p className="error">{errors.senha.message}</p>
+                      )}
                     </FloatingLabel>
                   </InputGroup>
 
                   <Row className="mb-3 text-end">
                     <Link
                       to="/recuperar-senha"
-                      className="fw-bold text-decoration-none fs-6"
-                      style={{ color: "#1F29AC" }}
+                      className="fw-bold text-decoration-none fs-6 text-white"
                     >
                       Esqueceu a senha?
                     </Link>
                   </Row>
+
                   <Button
                     as="input"
                     value="Entrar"
                     type="submit"
                     size="lg"
                     className="w-100 p-3 text-uppercase fw-bold"
-                    style={{ backgroundColor: "#fb5a09", borderColor: "white" }}
+                    style={{ backgroundColor: "#fb5a09" }}
                   />
+
+                  <Alert
+                    variant="danger"
+                    className={alertClass}
+                    style={{
+                      position: "absolute",
+                      width: "30%",
+                      left: "35%",
+                      top: "90%",
+                    }}
+                  >
+                    {alertMensagem}
+                  </Alert>
                 </Form>
               </Card.Body>
             </Col>

@@ -2,17 +2,23 @@
   "usuarios": [
     {
       "id": "1",
-      "nome": "Natã",
-      "email": "natao@user.com",
-      "cpf": "07406753624",
-      "senha": "pirulito"
+      "email": "user@mail.com",
+      "cpf": "80701048050",
+      "telefone": "31654897885",
+      "nome": "NN",
+      "sobrenome": "JJ",
+      "senha": "12345678",
+      "confirmarSenha": "12345678"
     },
     {
-      "id": "",
-      "nome": "",
-      "email": "",
-      "cpf": "",
-      "senha": ""
+      "id": "0382",
+      "email": "nata@user.com",
+      "cpf": "074.067.536-24",
+      "telefone": "27996898479",
+      "nome": "Natã",
+      "sobrenome": "Jordão",
+      "senha": "pirulito",
+      "confirmarSenha": "pirulito"
     }
   ],
   "cursos": [
@@ -42,7 +48,6 @@
         "Declaração de Matrícula na escola regular comprovando matrícula na 2ª ou 3ª série do Ensino Médio original – para quem não concluiu o Ensino Médio;",
         "Cartão de Vacina (Páginas identificação e vacinação) para MENORES de 18 ANOS."
       ],
-
       "conteudo": [
         "ESTE CURSO POSSUI 80% DA SUA CARGA HORÁRIA NA MODALIDADE DE EDUCAÇÃO À DISTÂNCIA E 20% PRESENCIAL",
         "Saúde e Segurança no Trabalho",

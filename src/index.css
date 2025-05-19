@@ -1,9 +1,9 @@
-/* .App {
-  background-color: rgb(231, 231, 231);
+.App {
+  display: grid;
   height: 100%;
 }
 
-.error{
+/*.error{
   color: red;
   font-size: 20px;
   position: absolute;

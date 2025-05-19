@@ -64,3 +64,19 @@ export function useVerificaLogin() {
   };
   return { verificaLogin };
 }
+
+export function useCadastrarUsuario() {
+  const cadastrarUsuario = async (data) => {
+    const request = await fetch(`${url}/usuarios`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const response = await request.json();
+    console.log("Usuário cadastrado: ", response);
+    return response;
+  };
+  return { cadastrarUsuario };
+}

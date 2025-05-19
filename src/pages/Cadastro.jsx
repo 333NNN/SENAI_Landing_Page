@@ -7,14 +7,17 @@ import {
   Container,
   Card,
 } from "react-bootstrap";
-
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useCadastrarUsuario } from "../hooks/useApi";
 import LogoSenai from "../assets/SENAI-BRANCA.svg";
-import { verificaCPF } from "../functions/verificaCPF";
+import { verificaCPF } from "../functions/verificaCPF.js";
 
 const Cadastro = () => {
   const navigate = useNavigate();
+
+  const { cadastrarUsuario } = useCadastrarUsuario();
 
   const {
     register,
@@ -23,15 +26,16 @@ const Cadastro = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-
-    if (!verificaCPF(data.cpf)) {
-      alert("CPF inválido! Por favor, corrija antes de continuar.");
-      return;
+  const onSubmit = async (data) => {
+    try {
+      const response = await cadastrarUsuario(data);
+      console.log("Usuário salvo com sucesso:", response);
+      alert("✅ Cadastro realizado com sucesso!");
+      navigate("/login", { state: data });
+    } catch (error) {
+      console.error("Erro ao cadastrar:", error);
+      alert("❌ Erro ao cadastrar o usuário.");
     }
-
-    navigate("/login", { state: data });
   };
 
   const senha = watch("senha");
@@ -40,7 +44,7 @@ const Cadastro = () => {
   };
 
   return (
-    <Container>
+    <Container fluid>
       <Col md={10} lg={9} xl={8} className="m-auto">
         <Card
           style={{ backgroundColor: "#2029ad", color: "white" }}
@@ -88,9 +92,24 @@ const Cadastro = () => {
                     >
                       <Form.Control
                         type="text"
-                        placeholder="000.000.000-00"
-                        {...register("cpf")}
+                        placeholder="Digite seu CPF"
+                        {...register("cpf", {
+                          required: "CPF é obrigatório",
+                          validate: (value) => {
+                            const cpfNumerico = value.replace(/\D/g, "");
+                            if (cpfNumerico.length !== 11)
+                              return "CPF deve conter 11 dígitos.";
+                            if (!verificaCPF(cpfNumerico))
+                              return "CPF inválido.";
+                            return true;
+                          },
+                        })}
                       />
+                      {errors.cpf && (
+                        <Form.Text className="text-danger">
+                          {errors.cpf.message}
+                        </Form.Text>
+                      )}
                     </FloatingLabel>
                   </Col>
 
