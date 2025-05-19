@@ -2,23 +2,23 @@
   "usuarios": [
     {
       "id": "1",
-      "email": "user@mail.com",
-      "cpf": "80701048050",
-      "telefone": "31654897885",
-      "nome": "NN",
-      "sobrenome": "JJ",
-      "senha": "12345678",
-      "confirmarSenha": "12345678"
+      "email": "arthur_mario_fernandes@rodomen.com.br",
+      "cpf": "260.938.466-10",
+      "telefone": "(98) 99272-6278",
+      "nome": "Arthur Mário",
+      "sobrenome": " Manuel Fernandes",
+      "senha": "GhXlgAxxFm",
+      "confirmarSenha": "GhXlgAxxFm"
     },
     {
-      "id": "0382",
-      "email": "nata@user.com",
-      "cpf": "074.067.536-24",
-      "telefone": "27996898479",
-      "nome": "Natã",
-      "sobrenome": "Jordão",
-      "senha": "pirulito",
-      "confirmarSenha": "pirulito"
+      "id": "3675",
+      "email": "juliana-rezende96@hotmail.com",
+      "cpf": "855.521.142-56",
+      "telefone": "(86) 98484-2719",
+      "nome": "Juliana ",
+      "sobrenome": "Rezende",
+      "senha": "opwNqbqyBT",
+      "confirmarSenha": "opwNqbqyBT"
     }
   ],
   "cursos": [

@@ -7,8 +7,7 @@ import {
   Container,
   Card,
 } from "react-bootstrap";
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCadastrarUsuario } from "../hooks/useApi";
 import LogoSenai from "../assets/SENAI-BRANCA.svg";
@@ -27,6 +26,7 @@ const Cadastro = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    delete data.id;
     try {
       const response = await cadastrarUsuario(data);
       console.log("Usuário salvo com sucesso:", response);

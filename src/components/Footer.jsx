@@ -14,8 +14,8 @@ const Footer = () => {
       }}
     >
       <Container fluid className={styles["footer-gradiente"]}>
-        <Row className="mt-3 mx-4 gx-4">
-          <Col className="d-flex flex-column align-items-start">
+        <Row className="mt-3 mx-4 gx-4 justify-content-center">
+          <Col md={4} className="d-flex flex-column align-items-start">
             <Image src={LogoSenai} />
             <br />
             <p>
@@ -25,7 +25,7 @@ const Footer = () => {
             </p>
           </Col>
 
-          <Col className="d-flex flex-column align-items-start">
+          <Col md={4} className="d-flex flex-column align-items-start">
             <h6>SAC - Serviço de Atendimento ao Cliente</h6>
             <p>Telefone: 0800-102-0880</p>
             <p>
@@ -37,7 +37,11 @@ const Footer = () => {
             </p>
           </Col>
 
-          <Col className="d-flex flex-column align-items-start">
+          <Col
+            md={4}
+            className="d-flex flex-column align-items-start"
+            style={{ paddingRight: "0px", height: "100px", width: "280px" }}
+          >
             <strong>Redes Sociais</strong>
             <a
               href="https://instagram.com/senaies"
